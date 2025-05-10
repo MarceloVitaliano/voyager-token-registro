@@ -1,0 +1,13 @@
+{
+  "name": "VOYAGER Push Register",
+  "short_name": "PushReg",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#56776c",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
