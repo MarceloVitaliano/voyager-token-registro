@@ -11,13 +11,12 @@ firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 const db = firebase.firestore();
-
 const estado = document.getElementById("estado");
 
-// 👉 Tu clave pública VAPID
 const vapidKey = "BHwNkY5tzz2VRy3PjDNIE0_KVEezht2AnlcQUr-pf01c6XOpwiTEcNMwxyExZO3n2ZqBh85f9_Tyrw017ku7gos";
 
-async function registrarDispositivo() {
+// 👉 Pedimos permiso solo después de interacción
+document.addEventListener("click", async () => {
   try {
     const permiso = await Notification.requestPermission();
     if (permiso !== "granted") {
@@ -26,7 +25,6 @@ async function registrarDispositivo() {
     }
 
     estado.textContent = "Permiso concedido. Registrando SW...";
-
     const registration = await navigator.serviceWorker.ready;
 
     estado.textContent = "Obteniendo token...";
@@ -36,11 +34,8 @@ async function registrarDispositivo() {
     await db.collection("tokens").doc(token).set({ token, registrado: new Date() });
 
     estado.textContent = "✅ Token registrado correctamente";
-
   } catch (err) {
-    console.error("Error al registrar el dispositivo:", err);
+    console.error(err);
     estado.textContent = "❌ Error: " + err.message;
   }
-}
-
-registrarDispositivo();
+}, { once: true }); // Solo 1 clic para evitar repeticiones
