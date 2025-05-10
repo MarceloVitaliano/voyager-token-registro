@@ -1,11 +1,11 @@
 // TODO: Reemplaza con tu configuración real de Firebase
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_DOMINIO.firebaseapp.com",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_BUCKET.appspot.com",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID"
+  apiKey: "AIzaSyDXf7B3J6O5nvDPr7zlnfxQ4HGRKNIBQbU",
+  authDomain: "voyager-app-8c677.firebaseapp.com",
+  projectId: "voyager-app-8c677",
+  storageBucket: "voyager-app-8c677.firebasestorage.app",
+  messagingSenderId: "19194177029",
+  appId: "1:19194177029:web:fb8e809b2a62923c29de6c"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -16,7 +16,7 @@ const db = firebase.firestore();
 const estado = document.getElementById("estado");
 
 // TODO: Reemplaza con tu clave pública VAPID
-const vapidKey = "TU_CLAVE_VAPID_PUBLICA";
+const vapidKey = "BHwNkY5tzz2VRy3PjDNIE0_KVEezht2AnlcQUr-pf01c6XOpwiTEcNMwxyExZO3n2ZqBh85f9_Tyrw017ku7gos";
 
 Notification.requestPermission().then((permission) => {
   if (permission === "granted") {
