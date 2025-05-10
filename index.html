@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro de Token Push</title>
+
+  <!-- ✅ ENLACE CORRECTO AL MANIFEST -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.png">
+
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-messaging-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
@@ -12,21 +18,20 @@
   <h2>Registro de dispositivo</h2>
   <p id="estado">Esperando permiso...</p>
 
-  <!-- 🔧 Registro del Service Worker -->
+  <!-- ✅ REGISTRO DEL SERVICE WORKER -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('firebase-messaging-sw.js')
-        .then(function(registration) {
+        .then(function (registration) {
           console.log('✅ Service Worker registrado con éxito:', registration);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.error('❌ Error al registrar el Service Worker:', error);
         });
     }
   </script>
 
-  <!-- 🚀 Código de token -->
+  <!-- 🚀 SCRIPT DE REGISTRO DE TOKEN -->
   <script src="registro-token.js"></script>
 </body>
 </html>
-
