@@ -11,6 +11,22 @@
 <body>
   <h2>Registro de dispositivo</h2>
   <p id="estado">Esperando permiso...</p>
+
+  <!-- 🔧 Registro del Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('firebase-messaging-sw.js')
+        .then(function(registration) {
+          console.log('✅ Service Worker registrado con éxito:', registration);
+        })
+        .catch(function(error) {
+          console.error('❌ Error al registrar el Service Worker:', error);
+        });
+    }
+  </script>
+
+  <!-- 🚀 Código de token -->
   <script src="registro-token.js"></script>
 </body>
 </html>
+
